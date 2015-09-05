@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 class SearchUser extends Component {
   searchUser() {
-    const { router } = this.context;
+    const { onSearchUser } = this.props;
     const { value: userName } = this.refs.userName.getDOMNode();
 
-    router.transitionTo(userName, {});
+    onSearchUser(userName);
   }
 
   render() {
@@ -22,8 +22,8 @@ class SearchUser extends Component {
   }
 }
 
-SearchUser.contextTypes = {
-  router: React.PropTypes.object.isRequired
-}
+SearchUser.propTypes = {
+  onSearchUser: React.PropTypes.func.isRequired
+};
 
 export default SearchUser;
