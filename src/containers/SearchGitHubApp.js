@@ -1,9 +1,6 @@
 import React, { Component } from 'react'; // eslint-disable-line no-unused-vars
-import { Router, Route } from 'react-router';
 
 import SearchUser from '../components/SearchUser';
-import Home from '../components/Home';
-import Profile from '../components/Profile';
 
 export default class SearchGitHubApp extends Component {
   render() {
@@ -15,10 +12,7 @@ export default class SearchGitHubApp extends Component {
           </div>
         </nav>
         <div className="container">
-          <Router history={this.props.history}>
-            <Route path='/' component={Home} />
-            <Route path='/:username' component={Profile} />
-          </Router>
+          {this.props.children}
         </div>
       </div>
     );

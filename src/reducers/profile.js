@@ -8,7 +8,7 @@ const initialProfileState = {
   isFetching: false
 };
 
-export const createReducer(initialProfileState, {
+export const profile = createReducer(initialProfileState, {
   [FETCH_PROFILE]: (state, action) => {
     return Object.assign({}, state, {
       isFetching: true
