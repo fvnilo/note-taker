@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class SearchUser extends Component {
   searchUser() {
     const { router } = this.context;
-    const { value:userName } = this.refs.userName.getDOMNode();
+    const { value: userName } = this.refs.userName.getDOMNode();
 
     router.transitionTo(userName, {});
   }

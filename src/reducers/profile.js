@@ -1,6 +1,6 @@
 import { createReducer } from './helpers';
 
-import { FETCH_PROFILE, RECEIVE_PROFILE } from '../constants/ActionTypes.js';
+import { REQUEST_PROFILE, RECEIVE_PROFILE } from '../constants/ActionTypes.js';
 
 const initialProfileState = {
   bio: {},
@@ -9,7 +9,7 @@ const initialProfileState = {
 };
 
 export const profile = createReducer(initialProfileState, {
-  [FETCH_PROFILE]: (state, action) => {
+  [REQUEST_PROFILE]: (state, action) => {
     return Object.assign({}, state, {
       isFetching: true
     });

@@ -20,8 +20,6 @@ export function fetchProfile(userName) {
   return dispatch => {
     dispatch(requestProfile(userName));
     axios.get(`https://api.github.com/users/${userName}`)
-      .then(function(response) {
-        console.log(response);
-      });
+      .then((response) => dispatch(receiveProfile(response.data)));
   };
 }

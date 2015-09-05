@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import SearchGitHubApp from './SearchGitHubApp';
 
 import Home from '../components/Home';
-import Profile from '../components/Profile';
+import ProfilePage from '../containers/ProfilePage';
 
 import configureStore from '../store/configureStore';
 
@@ -16,7 +16,7 @@ function renderRoutes(history) {
     <Router history={history}>
       <Route component={SearchGitHubApp}>
         <Route path='/' component={Home} />
-        <Route path='/:userName' component={Profile} />
+        <Route path='/:userName' component={ProfilePage} />
       </Route>
     </Router>
   );
