@@ -16,10 +16,23 @@ function receiveProfile(profile) {
   };
 }
 
+function getUser(userName) {
+  return axios.get(`https://api.github.com/users/${userName}`);
+}
+
+function getUserRepos(userName) {
+  return axios.get(`https://api.github.com/users/${userName}/repos`);
+}
+
 export function fetchProfile(userName) {
   return dispatch => {
     dispatch(requestProfile(userName));
-    axios.get(`https://api.github.com/users/${userName}`)
-      .then((response) => dispatch(receiveProfile(response.data)));
+    axios.all([getUser(userName), getUserRepos(userName)])
+      .then(axios.spread((userResponse, reposResponse) => {
+        dispatch(receiveProfile({
+          user: userResponse.data,
+          repos: reposResponse.data
+        }));
+      }));
   };
 }

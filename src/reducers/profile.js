@@ -40,8 +40,9 @@ export const profile = createReducer(initialProfileState, {
     });
   },
   [RECEIVE_PROFILE]: (state, action) => {
-    return Object.assign({}, { user: buildBio(action.profile) }, {
-      isFetching: false
-    });
+    return Object.assign({},
+      { user: buildBio(action.profile.user) },
+      { repos: action.profile.repos },
+      { isFetching: false });
   }
 });
