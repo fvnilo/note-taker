@@ -3,7 +3,7 @@ import { Router, Route } from 'react-router';
 
 import SearchUser from '../components/SearchUser';
 import Home from '../components/Home';
-import Profile from '../components/profile/Profile';
+import Profile from '../components/Profile';
 
 export default class SearchGitHubApp extends Component {
   render() {
