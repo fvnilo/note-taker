@@ -6,12 +6,12 @@ import NotesList from './NotesList';
 
 export default class Notes extends Component {
   render() {
-    const { notes } = this.props;
+    const { addNote, notes } = this.props;
 
     return (
       <div>
         <h2>Notes</h2>
-          <AddNote />
+          <AddNote addNote={addNote} />
           <NotesList notes={notes} />
       </div>
     );

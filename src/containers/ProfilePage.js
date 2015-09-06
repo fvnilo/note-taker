@@ -19,6 +19,14 @@ class Profile extends Component {
     };
   }
 
+  addNote(note) {
+    const { userName } = this.props.profile;
+
+    base.post(userName, {
+      data: this.state.notes.concat([note])
+    });
+  }
+
   bindNotes(userName) {
     this.ref = base.bindToState(userName, {
       context: this,
@@ -46,7 +54,7 @@ class Profile extends Component {
       <div className="row">
         <div className="col-sm-4"><User user={user} /></div>
         <div className="col-sm-4"><Repos repos={repos} /></div>
-        <div className="col-sm-4"><Notes notes={notes} /></div>
+        <div className="col-sm-4"><Notes notes={notes} addNote={this.addNote.bind(this)} /></div>
       </div>);
   }
 
