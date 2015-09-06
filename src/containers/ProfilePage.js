@@ -24,13 +24,24 @@ class Profile extends Component {
     );
   }
 
+  renderErrorMessage() {
+    return (
+      <div className="row">
+        <div className="col-sm-12 text-center">
+          <h1>Oops... An error occured while fetching the profile!</h1>
+        </div>
+      </div>
+    );
+  }
+
   render() {
-    const { isFetching, user, repos } = this.props.profile;
+    const { errorOccured, isFetching, user, repos } = this.props.profile;
 
     return (
       <div>
-        { isFetching && this.renderLoading() }
-        { !isFetching && this.renderProfile(user, repos) }
+        { errorOccured && this.renderErrorMessage() }
+        { !errorOccured && isFetching && this.renderLoading() }
+        { !errorOccured && !isFetching && this.renderProfile(user, repos) }
       </div>
     );
   }

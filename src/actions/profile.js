@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { REQUEST_PROFILE, RECEIVE_PROFILE } from '../constants/ActionTypes';
+import { REQUEST_PROFILE, RECEIVE_PROFILE, ERROR_WHILE_FETCHING_PROFILE } from '../constants/ActionTypes';
 
 function requestProfile(userName) {
   return {
@@ -13,6 +13,12 @@ function receiveProfile(profile) {
   return {
     type: RECEIVE_PROFILE,
     profile
+  };
+}
+
+function handleProfileFetchingError() {
+  return {
+    type: ERROR_WHILE_FETCHING_PROFILE
   };
 }
 
@@ -33,6 +39,9 @@ export function fetchProfile(userName) {
           user: userResponse.data,
           repos: reposResponse.data
         }));
-      }));
+      }))
+      .catch(() => {
+        dispatch(handleProfileFetchingError());
+      });
   };
 }

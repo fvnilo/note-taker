@@ -1,11 +1,12 @@
 import { createReducer } from './helpers';
 
-import { REQUEST_PROFILE, RECEIVE_PROFILE } from '../constants/ActionTypes.js';
+import { REQUEST_PROFILE, RECEIVE_PROFILE, ERROR_WHILE_FETCHING_PROFILE } from '../constants/ActionTypes.js';
 
 const initialProfileState = {
   user: {},
   repos: [],
-  isFetching: false
+  isFetching: false,
+  errorOccured: false
 };
 
 function buildBio(profile) {
@@ -36,13 +37,24 @@ function buildBio(profile) {
 export const profile = createReducer(initialProfileState, {
   [REQUEST_PROFILE]: (state) => {
     return Object.assign({}, state, {
-      isFetching: true
+      isFetching: true,
+      errorOccured: false
     });
   },
   [RECEIVE_PROFILE]: (state, action) => {
     return Object.assign({},
-      { user: buildBio(action.profile.user) },
-      { repos: action.profile.repos },
-      { isFetching: false });
+      {
+        user: buildBio(action.profile.user)
+      },
+      {
+        repos: action.profile.repos
+      },
+      {
+        isFetching: false,
+        errorOccured: false
+      });
+  },
+  [ERROR_WHILE_FETCHING_PROFILE]: (state) => {
+    return Object.assign({}, state, { errorOccured: true});
   }
 });
