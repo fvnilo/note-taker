@@ -31,7 +31,7 @@ class SearchGitHubApp extends Component {
             <SearchUser onSearchUser={this.searchUser.bind(this)}/>
           </div>
         </nav>
-        
+
         <div className="container">
           {this.props.children}
         </div>

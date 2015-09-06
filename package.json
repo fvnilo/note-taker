@@ -15,6 +15,7 @@
   "author": "Ny Fanilo Andrianjafy",
   "license": "MIT",
   "dependencies": {
+    "re-base": "^1.1.2",
     "react": "^0.13.3",
     "react-redux": "^2.0.0",
     "react-router": "^1.0.0-beta3",
