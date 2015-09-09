@@ -8,6 +8,9 @@ export default class Notes extends Component {
   render() {
     const { addNote, notes } = this.props;
 
+    console.log('Notes:');
+    console.log(notes);
+
     return (
       <div>
         <h2>Notes</h2>

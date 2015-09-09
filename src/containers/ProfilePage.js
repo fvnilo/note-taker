@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Rebase from 're-base';
+import * as NotesActions from '../actions/notes';
 
 import User from '../components/github/User';
 import Repos from '../components/github/Repos';
 
 import Notes from '../components/notes/Notes';
-
-var base = Rebase.createClass('https://fanilo-github-notes.firebaseio.com/');
 
 class Profile extends Component {
   constructor(props) {
@@ -20,33 +18,9 @@ class Profile extends Component {
   }
 
   addNote(note) {
-    const { userName } = this.props.profile;
+    const { dispatch } = this.props;
 
-    base.post(userName, {
-      data: this.state.notes.concat([note])
-    });
-  }
-
-  bindNotes(userName) {
-    this.ref = base.bindToState(userName, {
-      context: this,
-      state: 'notes',
-      asArray: true
-    });
-  }
-
-  componentWillReceiveProps() {
-    const { userName } = this.props.params;
-
-    if (this.ref) {
-      base.removeBinding(this.ref);
-    }
-
-    this.bindNotes(userName);
-  }
-
-  componentWillUnmout() {
-    base.removeBinding(this.ref);
+    dispatch(NotesActions.addNote(note));
   }
 
   renderProfile(user, repos, notes) {
@@ -80,7 +54,7 @@ class Profile extends Component {
 
   render() {
     const { errorOccured, isFetching, user, repos } = this.props.profile;
-    const { notes } = this.state;
+    const { notes } = this.props;
 
     return (
       <div>
@@ -98,7 +72,8 @@ Profile.contextTypes = {
 
 function mapStateToProps(state) {
   return {
-    profile: state.profile
+    profile: state.profile,
+    notes: state.notes.items
   };
 }
 
