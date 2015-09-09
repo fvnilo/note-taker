@@ -66,6 +66,10 @@ class Profile extends Component {
   }
 }
 
+Profile.propTypes = {
+  profile: React.PropTypes.object.isRequired
+};
+
 Profile.contextTypes = {
   router: React.PropTypes.object.isRequired
 };

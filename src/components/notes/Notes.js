@@ -4,7 +4,7 @@ import AddNote from './AddNote';
 import NotesList from './NotesList';
 
 
-export default class Notes extends Component {
+class Notes extends Component {
   render() {
     const { addNote, notes } = this.props;
 
@@ -17,3 +17,10 @@ export default class Notes extends Component {
     );
   }
 }
+
+Notes.propTypes = {
+  addNote: React.PropTypes.func.isRequired,
+  notes: React.PropTypes.array.isRequired
+};
+
+export default Notes;

@@ -5,6 +5,7 @@ export default class Home extends Component {
     return (
       <div className="text-center">
         <h1>Search for a user on GitHub</h1>
-      </div>);
+      </div>
+    );
   }
 }

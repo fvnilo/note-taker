@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class AddNote extends Component {
+class AddNote extends Component {
   onAddNote() {
     const { addNote } = this.props;
     const { value: note } = this.refs.note.getDOMNode();
@@ -21,3 +21,9 @@ export default class AddNote extends Component {
     );
   }
 }
+
+AddNote.propTypes = {
+  addNote: React.PropTypes.func.isRequired
+};
+
+export default AddNote;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'; // eslint-disable-line no-unused-vars
 
-export default class Repos extends Component {
+class Repos extends Component {
   renderRepos(repos) {
     return repos.map((repo) =>
       <li className="list-group-item" key={repo.id}>
@@ -19,6 +19,13 @@ export default class Repos extends Component {
         <ul className="list-group">
           {this.renderRepos(repos)}
         </ul>
-      </div>);
+      </div>
+    );
   }
 }
+
+Repos.propTypes = {
+  repos: React.PropTypes.array.isRequired
+};
+
+export default Repos;

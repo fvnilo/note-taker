@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class NoteList extends Component {
+class NoteList extends Component {
   renderNotes(notes) {
     return notes.map((note, index) =>
       <li className="list-group-item" key={index}>
@@ -19,3 +19,9 @@ export default class NoteList extends Component {
     );
   }
 }
+
+NoteList.propTypes = {
+  notes: React.PropTypes.array.isRequired
+};
+
+export default NoteList;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'; // eslint-disable-line no-unused-vars
 
-export default class User extends Component {
+class User extends Component {
   render() {
     const { user } = this.props;
 
@@ -21,3 +21,9 @@ export default class User extends Component {
       </div>);
   }
 }
+
+User.propTypes = {
+  user: React.PropTypes.object.isRequired
+};
+
+export default User;
