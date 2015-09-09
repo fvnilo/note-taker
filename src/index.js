@@ -1,11 +1,13 @@
 import 'babel-core/polyfill';
 
 import React from 'react';
-import BrowserHistory from 'react-router/lib/BrowserHistory';
+import { createHistory } from 'history';
 
 import Root from './containers/Root';
 
+const history = createHistory();
+
 React.render(
-  <Root history={ new BrowserHistory }/>,
+  <Root history={history}/>,
   document.getElementById('root')
 );

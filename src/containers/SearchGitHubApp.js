@@ -29,12 +29,12 @@ class SearchGitHubApp extends Component {
   }
 
   loadUser(userName) {
-    const { router } = this.context;
+    const { history } = this.context;
 
     this.loadUserProfile(userName);
     this.loadUserNotes(userName);
 
-    router.transitionTo(userName, {});
+    history.pushState(null, `/${userName}`);
   }
 
   render() {
@@ -55,7 +55,7 @@ class SearchGitHubApp extends Component {
 }
 
 SearchGitHubApp.contextTypes = {
-  router: React.PropTypes.object.isRequired
+  history: React.PropTypes.object.isRequired
 };
 
 export default connect()(SearchGitHubApp);
