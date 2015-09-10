@@ -8,7 +8,7 @@ import Repos from '../components/github/Repos';
 
 import Notes from '../components/notes/Notes';
 
-class Profile extends Component {
+class ProfilePage extends Component {
   constructor(props) {
     super(props);
 
@@ -66,12 +66,12 @@ class Profile extends Component {
   }
 }
 
-Profile.propTypes = {
+ProfilePage.propTypes = {
   profile: React.PropTypes.object.isRequired
 };
 
-Profile.contextTypes = {
-  router: React.PropTypes.object.isRequired
+ProfilePage.contextTypes = {
+  history: React.PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
@@ -81,4 +81,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Profile);
+export default connect(mapStateToProps)(ProfilePage);

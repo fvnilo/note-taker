@@ -3,7 +3,6 @@ import Rebase from 're-base';
 import { REQUEST_NOTES, RECEIVE_NOTES, ADD_NOTE  } from '../constants/ActionTypes';
 
 var base = Rebase.createClass('https://fanilo-github-notes.firebaseio.com/');
-var currentListener = null;
 
 function requestNotes(userName) {
   return {
@@ -12,10 +11,11 @@ function requestNotes(userName) {
   };
 }
 
-function receiveNotes(notes) {
+function receiveNotes(notes, listener) {
   return {
     type: RECEIVE_NOTES,
-    notes
+    notes,
+    listener
   };
 }
 
@@ -26,21 +26,21 @@ function doAddNote(note) {
   };
 }
 
-function clearCurrentListener() {
-  if (currentListener) {
-    base.removeBinding(currentListener);
+function clearListener(listener) {
+  if (listener) {
+    base.removeBinding(listener);
   }
 }
 
 export function fetchNotes(userName) {
-  return dispatch => {
+  return (dispatch, getState) => {
     dispatch(requestNotes(userName));
-    clearCurrentListener();
-    currentListener = base.listenTo(userName, {
+    clearListener(getState().notes.listener);
+    var listener = base.listenTo(userName, {
       context: this,
       asArray: true,
-      then(data) {
-        dispatch(receiveNotes(data));
+      then(notes) {
+        dispatch(receiveNotes(notes, listener));
       }
     });
   };
