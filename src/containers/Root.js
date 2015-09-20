@@ -1,34 +1,31 @@
-import React, { Component } from 'react';
-import { Router, Route } from 'react-router';
+import React from 'react';
+import { Router } from 'react-router';
 import { Provider } from 'react-redux';
 
-import SearchGitHubApp from './SearchGitHubApp';
-
-import Home from '../components/Home';
-import ProfilePage from '../containers/ProfilePage';
+import routes from '../routes';
 
 import configureStore from '../store/configureStore';
 
 const store = configureStore();
 
-function renderRoutes(history) {
-  return (
-    <Router history={history}>
-      <Route component={SearchGitHubApp}>
-        <Route path='/' component={Home} />
-        <Route path='/:userName' component={ProfilePage} />
-      </Route>
-    </Router>
-  );
-}
+// function renderRoutes(history) {
+//   return (
+//     <Router history={history}>
+//       <Route component={SearchGitHubApp}>
+//         <Route path='/' component={Home} />
+//         <Route path='/:userName' component={ProfilePage} />
+//       </Route>
+//     </Router>
+//   );
+// }
 
-export default class Root extends Component {
+export default class Root extends React.Component {
   render() {
     const { history } = this.props;
 
     return (
       <Provider key="provider" store={store}>
-        { renderRoutes.bind(this, history) }
+        {() => <Router history={history} routes={routes} /> }
       </Provider>
     );
   }
