@@ -4,7 +4,6 @@ export default {
     path: '/',
     component: require('../containers/SearchGitHubApp'),
     childRoutes: [
-      require('./Home'),
       require('./Profile')
     ]
   }]
