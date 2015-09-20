@@ -1,7 +1,7 @@
 {
-  "name": "search-github",
+  "name": "note-taker",
   "version": "1.0.0",
-  "description": "A simple search github app that allows the user to leave notes.",
+  "description": "A simple search github app that allows the user to leave notes. It is based on an egghead.io tutorial but I adapted it to use redux.",
   "main": "index.js",
   "scripts": {
     "start": "node server.js"
@@ -10,9 +10,14 @@
     "react",
     "flux",
     "redux",
-    "firebase"
+    "firebase",
+    "react-router"
   ],
   "author": "Ny Fanilo Andrianjafy",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/nylo-andry/note-taker.git"
+  },
   "license": "MIT",
   "dependencies": {
     "axios": "^0.5.4",
@@ -20,7 +25,7 @@
     "re-base": "^1.1.2",
     "react": "^0.13.3",
     "react-redux": "^2.0.0",
-    "react-router": "^1.0.0-beta4",
+    "react-router": "^1.0.0-rc",
     "redux": "^3.0.0",
     "redux-logger": "^1.0.6",
     "redux-thunk": "^0.1.0"
