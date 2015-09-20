@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Home from '../components/Home';
-
 import SearchUser from '../components/SearchUser';
 
 import * as ProfileActions from '../actions/profile';
@@ -49,7 +47,7 @@ class SearchGitHubApp extends Component {
         </nav>
 
         <div className="container">
-          {this.props.children || <Home />}
+          {this.props.children}
         </div>
       </div>
     );

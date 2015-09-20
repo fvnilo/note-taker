@@ -8,17 +8,6 @@ import configureStore from '../store/configureStore';
 
 const store = configureStore();
 
-// function renderRoutes(history) {
-//   return (
-//     <Router history={history}>
-//       <Route component={SearchGitHubApp}>
-//         <Route path='/' component={Home} />
-//         <Route path='/:userName' component={ProfilePage} />
-//       </Route>
-//     </Router>
-//   );
-// }
-
 export default class Root extends React.Component {
   render() {
     const { history } = this.props;

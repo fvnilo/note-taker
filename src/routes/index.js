@@ -3,6 +3,7 @@ export default {
   childRoutes: [{
     path: '/',
     component: require('../containers/SearchGitHubApp'),
+    indexRoute: require('./Home'),
     childRoutes: [
       require('./Profile')
     ]
