@@ -1,3 +1,5 @@
+import './SearchUser.css';
+
 import React, { Component } from 'react';
 
 import { ENTER_KEY_CODE } from '../constants/Constants';
@@ -18,13 +20,9 @@ class SearchUser extends Component {
 
   render() {
     return (
-      <div className="input-group col-sm-12">
-        <div className="form-group col-sm-7">
-          <input type="text" className="form-control" placeholder="Search User..." onKeyDown={this.onKeyDown.bind(this)} ref="userName" />
-        </div>
-        <div className="form-group col-sm-5">
-          <button className="btn btn-block btn-primary" onClick={this.searchUser.bind(this)}>Search</button>
-        </div>
+      <div>
+        <input className="user-name-search" type="text" placeholder="Search User..." onKeyDown={this.onKeyDown.bind(this)} ref="userName" />
+        <button onClick={this.searchUser.bind(this)}>Search</button>
       </div>
     );
   }

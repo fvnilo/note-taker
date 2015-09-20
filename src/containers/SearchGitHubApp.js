@@ -1,3 +1,5 @@
+import './SearchGitHubApp.css';
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
@@ -39,14 +41,14 @@ class SearchGitHubApp extends Component {
 
   render() {
     return (
-      <div className="main-container">
-        <nav className="navbar navbar-default" role="navigation">
-          <div className="col-sm-7 col-sm-offset-2" style={{ marginTop: 15 }}>
+      <div className="app-container">
+        <nav className="header-bar">
+          <div>
             <SearchUser onSearchUser={this.loadUser.bind(this)}/>
           </div>
         </nav>
 
-        <div className="container">
+        <div className="main">
           {this.props.children}
         </div>
       </div>

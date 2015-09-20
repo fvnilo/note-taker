@@ -1,4 +1,5 @@
 import 'babel-core/polyfill';
+import './index.css';
 
 import React from 'react';
 import { createHistory } from 'history';

@@ -3,7 +3,7 @@ export default {
 
   getComponent (location, cb) {
     require.ensure([], (require) => {
-      cb(null, require('../../containers/ProfilePage'));
+      cb(null, require('../../containers/profile/ProfilePage'));
     });
   }
 };

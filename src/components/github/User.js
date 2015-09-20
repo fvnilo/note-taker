@@ -1,6 +1,8 @@
-import React, { Component } from 'react'; // eslint-disable-line no-unused-vars
+import './User.css';
 
-class User extends Component {
+import React from 'react';
+
+class User extends React.Component {
   render() {
     const { user } = this.props;
 
@@ -9,7 +11,7 @@ class User extends Component {
         <h2>User Profile</h2>
         <ul className="list-group">
           <li className="list-group-item">
-            <img src={user.avatarUrl} className="img-responsive"/>
+            <img src={user.avatarUrl} className="avatar"/>
           </li>
           { user.name && <li className="list-group-item">Name: {user.name}</li> }
           { user.email && <li className="list-group-item">Email: {user.email}</li> }

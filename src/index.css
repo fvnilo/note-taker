@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+
+  font-family: 'Open Sans', sans-serif;
+}
+input {
+  font-size: 15px;
+  padding: 4px 2px;
+}
+button {
+  box-shadow: none;
+  border: 1px solid #000;
+  color: white;
+  font-size: 15px;
+  padding: 5px 10px;
+}
+a {
+  text-decoration: none;
+}

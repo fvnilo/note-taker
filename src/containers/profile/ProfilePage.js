@@ -1,12 +1,14 @@
+import './ProfilePage.css';
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import * as NotesActions from '../actions/notes';
+import * as NotesActions from '../../actions/notes';
 
-import User from '../components/github/User';
-import Repos from '../components/github/Repos';
+import User from '../../components/github/User';
+import Repos from '../../components/github/Repos';
 
-import Notes from '../components/notes/Notes';
+import Notes from '../../components/notes/Notes';
 
 class ProfilePage extends Component {
   constructor(props) {
@@ -25,10 +27,10 @@ class ProfilePage extends Component {
 
   renderProfile(user, repos, notes) {
     return (
-      <div className="row">
-        <div className="col-sm-4"><User user={user} /></div>
-        <div className="col-sm-4"><Repos repos={repos} /></div>
-        <div className="col-sm-4"><Notes notes={notes} addNote={this.addNote.bind(this)} /></div>
+      <div className="profile-sections">
+        <div className="profile-section"><User user={user} /></div>
+        <div className="profile-section"><Repos repos={repos} /></div>
+        <div className="profile-section"><Notes notes={notes} addNote={this.addNote.bind(this)} /></div>
       </div>);
   }
 
