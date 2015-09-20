@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class NoteList extends Component {
   renderNotes(notes) {
     return notes.map((note, index) =>
-      <li className="list-group-item" key={index}>
+      <li key={index}>
         {note}
       </li>
     );
@@ -13,7 +13,7 @@ class NoteList extends Component {
     const { notes } = this.props;
 
     return (
-      <ul className="list-group">
+      <ul>
         {this.renderNotes(notes)}
       </ul>
     );

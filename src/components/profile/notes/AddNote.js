@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ENTER_KEY_CODE } from '../../constants/Constants';
+import { ENTER_KEY_CODE } from '../../../constants/Constants';
 
 class AddNote extends Component {
   onKeyDown(e) {
@@ -15,16 +15,16 @@ class AddNote extends Component {
     if (note) {
       addNote(note);
     }
-    
+
     this.refs.note.getDOMNode().value = '';
   }
 
   render() {
     return (
-      <div className="input-group">
-        <input type="text" className="form-control" ref="note" placeholder="Add New Note..." onKeyDown={this.onKeyDown.bind(this)} />
-        <span className="input-group-btn">
-          <button className="btn btn-default" onClick={this.onAddNote.bind(this)}>Add</button>
+      <div>
+        <input type="text" ref="note" placeholder="Add New Note..." onKeyDown={this.onKeyDown.bind(this)} />
+        <span>
+          <button onClick={this.onAddNote.bind(this)}>Add</button>
         </span>
       </div>
     );

@@ -1,7 +1,8 @@
-import './SearchGitHubApp.css';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
+import CSSModules from 'react-css-modules';
+import styles from './SearchGitHubApp.css';
 
 import SearchUser from '../components/SearchUser';
 
@@ -41,14 +42,14 @@ class SearchGitHubApp extends Component {
 
   render() {
     return (
-      <div className="app-container">
-        <nav className="header-bar">
+      <div>
+        <nav styleName='header-bar'>
           <div>
             <SearchUser onSearchUser={this.loadUser.bind(this)}/>
           </div>
         </nav>
 
-        <div className="main">
+        <div styleName='main-content'>
           {this.props.children}
         </div>
       </div>
@@ -60,4 +61,4 @@ SearchGitHubApp.contextTypes = {
   history: React.PropTypes.object.isRequired
 };
 
-export default connect()(SearchGitHubApp);
+export default connect()(CSSModules(SearchGitHubApp, styles));

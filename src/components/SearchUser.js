@@ -1,6 +1,7 @@
-import './SearchUser.css';
-
 import React, { Component } from 'react';
+
+import CSSModules from 'react-css-modules';
+import styles from './SearchUser.css';
 
 import { ENTER_KEY_CODE } from '../constants/Constants';
 
@@ -21,7 +22,7 @@ class SearchUser extends Component {
   render() {
     return (
       <div>
-        <input className="user-name-search" type="text" placeholder="Search User..." onKeyDown={this.onKeyDown.bind(this)} ref="userName" />
+        <input styleName='user-name-search' type='text' placeholder='Search User...' onKeyDown={this.onKeyDown.bind(this)} ref='userName' />
         <button onClick={this.searchUser.bind(this)}>Search</button>
       </div>
     );
@@ -32,4 +33,4 @@ SearchUser.propTypes = {
   onSearchUser: React.PropTypes.func.isRequired
 };
 
-export default SearchUser;
+export default CSSModules(SearchUser, styles);

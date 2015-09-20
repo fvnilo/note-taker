@@ -1,14 +1,15 @@
-import './ProfilePage.css';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import CSSModules from 'react-css-modules';
+import styles from './ProfilePage.css';
+
 import * as NotesActions from '../../actions/notes';
 
-import User from '../../components/github/User';
-import Repos from '../../components/github/Repos';
+import User from '../../components/profile/user/User';
+import Repos from '../../components/profile/user/Repos';
 
-import Notes from '../../components/notes/Notes';
+import Notes from '../../components/profile/notes/Notes';
 
 class ProfilePage extends Component {
   constructor(props) {
@@ -27,30 +28,22 @@ class ProfilePage extends Component {
 
   renderProfile(user, repos, notes) {
     return (
-      <div className="profile-sections">
-        <div className="profile-section"><User user={user} /></div>
-        <div className="profile-section"><Repos repos={repos} /></div>
-        <div className="profile-section"><Notes notes={notes} addNote={this.addNote.bind(this)} /></div>
+      <div styleName="profile-sections">
+        <div styleName="profile-section"><User user={user} /></div>
+        <div styleName="profile-section"><Repos repos={repos} /></div>
+        <div styleName="profile-section"><Notes notes={notes} addNote={this.addNote.bind(this)} /></div>
       </div>);
   }
 
   renderLoading() {
     return (
-      <div className="row">
-        <div className="col-sm-12 text-center">
-          <h1>Loading Profile...</h1>
-        </div>
-      </div>
+      <h1>Loading Profile...</h1>
     );
   }
 
   renderErrorMessage() {
     return (
-      <div className="row">
-        <div className="col-sm-12 text-center">
-          <h1>Oops... An error occured while fetching the profile!</h1>
-        </div>
-      </div>
+      <h1>Oops... An error occured while fetching the profile!</h1>
     );
   }
 
@@ -83,4 +76,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(ProfilePage);
+export default connect(mapStateToProps)(CSSModules(ProfilePage, styles));
