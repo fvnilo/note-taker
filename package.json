@@ -4,7 +4,8 @@
   "description": "A simple search github app that allows the user to leave notes. It is based on an egghead.io tutorial but I adapted it to use redux.",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "webpack --config webpack.config.prod.js"
   },
   "keywords": [
     "react",
