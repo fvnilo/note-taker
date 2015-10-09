@@ -10,13 +10,13 @@ class AddNote extends Component {
 
   onAddNote() {
     const { addNote } = this.props;
-    const { value: note } = this.refs.note.getDOMNode();
+    const { value: note } = this.refs.note;
 
     if (note) {
       addNote(note);
     }
 
-    this.refs.note.getDOMNode().value = '';
+    this.refs.note.value = '';
   }
 
   render() {

@@ -14,7 +14,7 @@ export default class Root extends React.Component {
 
     return (
       <Provider key="provider" store={store}>
-        {() => <Router history={history} routes={routes} /> }
+        <Router history={history} routes={routes} />
       </Provider>
     );
   }

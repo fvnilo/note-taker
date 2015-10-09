@@ -14,7 +14,7 @@ class SearchUser extends Component {
 
   searchUser() {
     const { onSearchUser } = this.props;
-    const { value: userName } = this.refs.userName.getDOMNode();
+    const { value: userName } = this.refs.userName;
 
     onSearchUser(userName);
   }

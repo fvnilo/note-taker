@@ -2,13 +2,14 @@ import 'babel-core/polyfill';
 import './index.css';
 
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { createHistory } from 'history';
 
 import Root from './containers/Root';
 
 const history = createHistory();
 
-React.render(
+ReactDOM.render(
   <Root history={history}/>,
   document.getElementById('root')
 );
